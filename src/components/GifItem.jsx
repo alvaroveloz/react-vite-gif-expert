@@ -1,5 +1,3 @@
-
-
 const GifItem = ( { title, id, url}) => {    
 
   return (
