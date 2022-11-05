@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 export const AddCategory = ({ onAddCategory }) => {
   const [inputValue, setInputValue] = useState();
@@ -11,20 +13,20 @@ export const AddCategory = ({ onAddCategory }) => {
     event.preventDefault();
 
     if (inputValue.trim().length <= 1) return;
-   //setCategories((cat) => [...cat, inputValue]);
-   onAddCategory(inputValue.trim())
+    onAddCategory(inputValue.trim());
     setInputValue('');
   };
 
   return (
-    <form onSubmit={(event) => onSubmit(event)}>
-      <input
-        type='text'
-        placeholder='Add Category'
-        value={inputValue}
-        onChange={onInputChange}
-      />
+    <form className='mb-5 fluid' onSubmit={(event) => onSubmit(event)}>
+      <InputGroup className='mb-3'>
+        <InputGroup.Text id='basic-addon1'>Add Category</InputGroup.Text>
+        <Form.Control
+          placeholder='Ex: Thundercats'
+          value={inputValue}
+          onChange={onInputChange}
+        />
+      </InputGroup>
     </form>
   );
 };
-

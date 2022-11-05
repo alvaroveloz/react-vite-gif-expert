@@ -1,6 +1,7 @@
 
 import GifItem from './GifItem';
 import useFetchGifs from '../hooks/useFetchGifs';
+import CardGroup from 'react-bootstrap/CardGroup';
 
 export const GifGrid = ({ category }) => {
  
@@ -8,13 +9,15 @@ export const GifGrid = ({ category }) => {
 
   return (
     <>
-      <h3>{category}</h3>
-      { isLoading && (<h3>Loading...</h3>)}
-      <div className='card-grid'>
+      <h3 className='text-muted'>{category}</h3>
+      {isLoading && <h3>Loading...</h3>}
+      {/* <div className='card-grid'> */}
+      <CardGroup>
         {images.map((image) => (
           <GifItem key={image.id} {...image} />
         ))}
-      </div>
+      </CardGroup>
+      {/* </div> */}
     </>
   );
 };

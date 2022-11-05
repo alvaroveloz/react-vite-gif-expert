@@ -1,11 +1,20 @@
-const GifItem = ( { title, id, url}) => {    
+import Card from 'react-bootstrap/Card';
+
+const GifItem = ({ title, id, url, username }) => {
+
+    const author = username ? username : 'not registered'
 
   return (
-    <div className='card'>
-        <img src={url} alt={title} />
-        <p>{ title }</p>
-    </div>
+    <Card className='m-1'>
+      <Card.Img className='img-fluid' variant='top' src={url} />
+      <Card.Body>
+        <Card.Text className='text-secondary'> {title}</Card.Text>
+      </Card.Body>
+      <Card.Footer>
+        <small className='text-muted'>Created by {author} </small>
+      </Card.Footer>
+    </Card>
   );
-}
+};
 
-export default GifItem
+export default GifItem;
